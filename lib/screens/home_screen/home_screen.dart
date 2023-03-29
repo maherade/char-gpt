@@ -83,8 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
       DioHelper.postData(url: 'completions', data: {
         "model": "gpt-3.5-turbo",
         "messages": [
-          {"role": "user", "content": "${textEditingController.text}"}
-        ]
+          {"role": "user", "content": textEditingController.text}
+        ],
+        "temperature": 0.7,
       }).then((value) {
         if (value.statusCode == 200) {
           setState(() {
